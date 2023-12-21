@@ -1,0 +1,116 @@
+/**
+ * Prose
+ * Contenu principal: texte, images, contenus de forme longue.
+ */
+
+.prose {
+  --prose-espacement-elements: 1.5rem;
+  --prose-taille-police: 1.125rem;
+  --prose-interlignage: 1.375rem;
+  --prose-couleur-ancres: var(--couleur-ancres);
+  --prose-couleur-ancres-survol: var(--couleur-ancres-survol);
+  --prose-graisse-corps: 400;
+  --prose-graisse-entetes: 700;
+
+  /* typo générale */
+  font-size: var(--prose-taille-police);
+  line-height: var(--prose-interlignage);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: var(--prose-graisse-entetes, 700);
+}
+
+.prose p {
+  margin-block: var(--prose-espacement-elements);
+}
+
+.prose a {
+  color: var(--prose-couleur-ancres);
+  text-decoration: underline;
+  transition: color .15s;
+}
+.prose a:hover {
+  color: var(--prose-couleur-ancres-survol);
+  text-decoration: none;
+}
+
+.prose b,
+.prose strong {
+  font-weight: var(--prose-graisse-gras, 700);
+}
+
+.prose blockquote {
+  margin-block: var(--prose-espacement-elements);
+}
+
+/* règle horizontale */
+.prose hr {
+  --hr-espacement-vertical: var(--prose-espacement-elements);
+  --hr-epaisseur-bordure: 2px;
+  --hr-couleur-bordure: currentColor; /* la couleur pourrait changer selon le contexte */
+
+  display: block;
+  margin-block: var(--hr-espacement-vertical);
+
+  color: inherit;
+  border: 0;
+  border-top: var(--hr-epaisseur-bordure) solid var(--hr-couleur-bordure);
+}
+
+.prose mark {
+  background-color: var(--couleur-fond-subrillance);
+  color: inherit;
+}
+
+.prose ul {
+  --prose-couleur-puce: var(--jaune-galliano-500);
+
+  list-style: none outside none; /* nous stylons avec li::before */
+  padding-inline: 0;
+  margin-inline-start: 0;
+}
+.prose ul li {
+  position: relative;
+  padding-inline-start: 1.75rem; /* faire place à la puce */
+  margin-inline-start: 0;
+}
+.prose ul li::before {
+  content: '';
+
+  display: inline-block;
+  position: absolute;
+  left: .5rem;
+  top: .35em; /* relatif à la taille de police actuelle */
+  width: .625rem; /* 16px => 10px */
+  aspect-ratio: 1 / 1;
+
+
+  background-color: var(--prose-couleur-puce);
+  border-radius: 50%;
+}
+
+.prose code {
+  padding: .125rem .25rem;
+  font-size: 81.25%; /* 16px => 14px */
+  line-height: 1; /* réduire l'espace vertical */
+  border-radius: .25rem; /* accorder avec padding-inline */
+  color: var(--bleu-royal-500);
+  background-color: var(--bleu-royal-50);
+  letter-spacing: 0.025em; /* aider à bien distinguer caractères monochasse */
+}
+
+/* Diapositives */
+
+/*
+Bloc qui devrait figurer dans les diapositives, mais qui ne devrait pas
+apparaître dans le document comme tel.
+*/
+.prose .slide-only {
+  display: none;
+}
