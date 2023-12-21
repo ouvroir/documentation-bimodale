@@ -53,8 +53,6 @@ Exemples:
   --bloc-text-color: #0a0a0a;
   --bloc-background-color: #d2d2d2;
 
-  /* Une ligne vide sépare la déclaration des variables de la suite */
-
   /*
    * 1. Taille et positionnement
    * Les règles liées à la taille, au positionnement et à la disposition
@@ -66,8 +64,6 @@ Exemples:
    display: flex;
    flex-direction: column;
    gap: .5rem;
-
-  /* Une ligne vide sépare les règles de taille-positionnment de la suite */
 
    /*
     * 2. Propriétés cosmétiques
@@ -84,7 +80,6 @@ Exemples:
     color: var(--bloc-text-color);
     background-color: var(--bloc-background-color);
     border-radius: .35rem;
-
     /* Effets d'animation et de transition */
     transition: background-color .25s;
 }
