@@ -16,34 +16,60 @@
     <link rel="stylesheet" href="style/general/reset.css" />
     <link rel="stylesheet" href="style/general/variables.css" />
     <link rel="stylesheet" href="style/general/global.css" />
+    <!-- Polices -->
+    <link rel="stylesheet" href="fonts/overused-grotesk/overused-grotesk.css" />
     <!-- Dispositions de page -->
     <link rel="stylesheet" href="style/layout/page-layout.css" />
     <!-- Composants -->
     <link rel="stylesheet" href="style/components/prose.css" />
 
     <style>
-      /* Styleguide specific styles (sg = styleguide) */
+      /* Styleguide specific styles (sg => styleguide) */
       .sg-section-tuiles {
+        margin-block: 1rem;
+      }
+
+      .sg-section-tuiles__alignement {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: stretch;
-        gap: .25rem;
-        margin-block: 1rem;
-        width: 100%;
+        justify-content: space-between;
+        gap: .125rem;
+      }
+      @media (min-width: 60rem) {
+        .sg-section-tuiles__alignement {
+          flex-wrap: nowrap;
+          gap: .25rem;
+        }
+      }
+      .sg-section-tuiles__entete {
+        margin-block: 0 .5rem;
+        font-size: 1.25rem;
       }
 
       .sg-tuile {
         --tuile-bg: var(--gris-athenes-100); /* replace me! */
-        --tuile-couleur-bordure: var(--tuile-bg); /* replace me! */
+        --tuile-couleur-bordure: var(--tuile-bg); /* replace me100! */
 
-        max-width: 4rem;
-        width: 100%;
         flex: 1 1 0;
+        max-width: 4.5rem;
+        width: 100%;
+      }
+
+      .sg-tuile__pastille {
         aspect-ratio: 3 / 2;
 
         background-color: var(--tuile-bg);
         border: 0px solid var(--tuile-couleur-bordure);
         border-radius: .35rem;
+      }
+
+      .sg-tuile__description {
+        padding: .125rem;
+
+        color: var(--gris-athenes-800);
+        font-size: 0.75rem;
       }
     </style>
   </head>
@@ -82,7 +108,7 @@
 
           <ul>
             <li style="--prose-couleur-puce: var(--bleu-royal-500)">une</li>
-            <li style="--prose-couleur-puce: var(--tia-maria-500)">liste<br>(blah)<br>(bla)</li>
+            <li style="--prose-couleur-puce: var(--ocre-rouge-500)">liste<br>(blah)<br>(bla)</li>
             <li>non ordonnée</li>
           </ul>
 
@@ -92,88 +118,331 @@
 
           <h2>Couleurs</h2>
 
+          <p>Le texte est composé en <strong style="color: #fff; background-color: #000; padding: .125rem .25rem; line-height: .8; border-radius: .25rem;">noir</strong> sur <strong style="background-color: #fff; color: #000; padding: 1px .25rem .125rem; line-height: .8; border-radius: .25rem; border: 1px solid var(--gris-athenes-500)">fond blanc</strong>, pour un contraste optimal.</p>
+
+          <p>Une palette réduite de couleurs vibrantes est choisie pour rendre la communication visuelle attrayante et ludique. La triade <strong style="color: var(--bleu-royal);">bleu</strong>/<strong style="color: var(--cyber-jaune-500);">jaune</strong>/<strong style="color: var(--ocre-rouge-500);">rouge</strong> s'appuie sur les couleurs de base utilisées dans l'école du Bauhaus. Elle évoque la simplicité et permet de s'adresser à un large public.</p>
+
+          <figure>
+            <img
+              src="cite-radieuse-marseille.jpg"
+              alt="La cité radieuse (Le Corbusier, 1952)"
+            />
+            <figcaption>La cité radieuse de Marseille (Le Corbusier, 1952).</figcaption>
+          </figure>
+          
+          <p>Le <strong><span style="color: var(--bleu-royal-200)">nuancier</span> <span style="color: var(--bleu-royal-400)">de</span> <span style="color: var(--bleu-royal-700)">bleu</span></strong> peut d'ailleurs être utilisé pour rappeler les <em lang="en">blueprints</em> des dessins d'architectes.</p>
+
+          <p>Un <strong style="color: var(--vert-malachite);">vert malachite</strong>, utilisé parcimonieusement, permet d'évoquer la culture numérique. Le <strong style="color: var(--violet-amethyste-500)">violet améthyste</strong> aux tonalités adoucies constitue une valeur refuge pour des contenus moins novateurs, plus sûrs et consensuels. Enfin, un nuancier de <strong style="color: var(--gris-athenes-500)">gris d'Athènes</strong> permet de varier les accentuations entre le blanc et le noir.</p>
+
+          <figure>
+            <img
+              src="culture-numerique.jpg"
+              alt="Culture numérique"
+              width="400px"
+            />
+            <figcaption><cite>Culture numérique</cite> (Dominique Cardon, 2019).</figcaption>
+          </figure>
+
           <section class="sg-section-tuiles">
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-50); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-100); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-200);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-300);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-400);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-500);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-600);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-700);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-800);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-900);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-950);"></div>
+            <h3 class="sg-section-tuiles__entete">Bleu royal</h3>
+            <div class="sg-section-tuiles__alignement">
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-50); --tuile-couleur-bordure: var(--gris-athenes-300)">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">
+                  50
+                </div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-100); --tuile-couleur-bordure: var(--gris-athenes-300)">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">100</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-200);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">200</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-300);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">300</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-400);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">400</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-500);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">500</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-600);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">600</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-700);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">700</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-800);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">800</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-900);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">900</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--bleu-royal-950);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">950</div>
+              </div>
+            </div>
           </section>
 
           <section class="sg-section-tuiles">
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-50); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-100); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-200);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-300);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-400);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-500);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-600);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-700);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-800);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-900);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--jaune-galliano-950);"></div>
+            <h3 class="sg-section-tuiles__entete">Cyber jaune</h3>
+            <div class="sg-section-tuiles__alignement">
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-50); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">50</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-100); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">100</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-200);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">200</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-300);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">300</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-400);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">400</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-500);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">500</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-600);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">600</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-700);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">700</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-800);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">800</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-900);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">900</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--cyber-jaune-950);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">950</div>
+            </div>
+            </div>
           </section>
 
           <section class="sg-section-tuiles">
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-50); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-100); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-200);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-300);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-400);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-500);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-600);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-700);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-800);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-900);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--tia-maria-950);"></div>
+            <h3 class="sg-section-tuiles__entete">Ocre rouge</h3>
+            <div class="sg-section-tuiles__alignement">
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-50); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">50</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-100); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">100</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-200);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">200</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-300);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">300</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-400);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">400</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-500);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">500</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-600);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">600</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-700);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">700</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-800);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">800</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-900);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">900</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--ocre-rouge-950);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">950</div>
+            </div>
+            </div>
           </section>
 
           <section class="sg-section-tuiles">
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-50); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-100); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-200);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-300);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-400);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-500);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-600);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-700);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-800);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-900);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-950);"></div>
+            <h3 class="sg-section-tuiles__entete">Vert malachite</h3>
+            <div class="sg-section-tuiles__alignement">
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-50); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">50</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-100); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">100</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-200);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">200</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-300);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">300</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-400);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">400</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-500);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">500</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-600);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">600</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-700);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">700</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-800);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">800</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-900);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">900</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--vert-malachite-950);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">950</div>
+            </div>
+            </div>
           </section>
 
           <section class="sg-section-tuiles">
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-50); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-100); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-200);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-300);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-400);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-500);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-600);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-700);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-800);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-900);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--violet-collegial-950);"></div>
+            <h3 class="sg-section-tuiles__entete">Violet améthyste</h3>
+            <div class="sg-section-tuiles__alignement">
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-50); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">50</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-100); --tuile-couleur-bordure: var(--gris-athenes-300)">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">100</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-200);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">200</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-300);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">300</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-400);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">400</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-500);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">500</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-600);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">600</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-700);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">700</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-800);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">800</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-900);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">900</div>
+            </div>
+            <div class="sg-tuile" style="--tuile-bg: var(--violet-amethyste-950);">
+              <div class="sg-tuile__pastille"></div>
+              <div class="sg-tuile__description">950</div>
+            </div>
+            </div>
           </section>
 
           <section class="sg-section-tuiles">
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-50); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-100); --tuile-couleur-bordure: var(--gris-athenes-300)"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-200);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-300);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-400);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-500);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-600);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-700);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-800);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-900);"></div>
-            <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-950);"></div>
+            <h3 class="sg-section-tuiles__entete">Gris athénien</h3>
+            <div class="sg-section-tuiles__alignement">
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-50); --tuile-couleur-bordure: var(--gris-athenes-300)">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">50</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-100); --tuile-couleur-bordure: var(--gris-athenes-300)">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">100</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-200);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">200</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-300);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">300</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-400);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">400</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-500);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">500</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-600);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">600</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-700);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">700</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-800);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">800</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-900);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">900</div>
+              </div>
+              <div class="sg-tuile" style="--tuile-bg: var(--gris-athenes-950);">
+                <div class="sg-tuile__pastille"></div>
+                <div class="sg-tuile__description">950</div>
+              </div>
+            </div>
           </section>
 
         </div>

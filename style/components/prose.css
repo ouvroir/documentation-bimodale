@@ -1,19 +1,21 @@
 /**
  * Prose
  * Contenu principal: texte, images, contenus de forme longue.
+ * Toutes les règles sont imbriquées dans le sélecteur `.prose`.
  */
 
 .prose {
   --prose-espacement-elements: 1.5rem;
-  --prose-taille-police: 1.125rem;
-  --prose-interlignage: 1.375rem;
+  --prose-espacement-elements-extra: 2.5rem;
+  --prose-taille-police: var(--taille-police-corps);
+  --prose-interlignage: 1.375;
   --prose-couleur-ancres: var(--couleur-ancres);
   --prose-couleur-ancres-survol: var(--couleur-ancres-survol);
-  --prose-graisse-corps: 400;
-  --prose-graisse-entetes: 700;
 
   /* typo générale */
+  font-family: var(--police-corps);
   font-size: var(--prose-taille-police);
+  font-weight: var(--graisse-corps);
   line-height: var(--prose-interlignage);
 }
 
@@ -23,7 +25,38 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-  font-weight: var(--prose-graisse-entetes, 700);
+  /* marge du haut semi-proportionnelle */
+  margin-block-start: calc(1rem + .5em);
+  /* marge du bas fixe */
+  margin-block-end: .75rem;
+
+  font-family: var(--police-entetes);
+  font-weight: var(--graisse-entetes, 700);
+  line-height: var(--interlignag-entetes);
+}
+
+.prose h1 {
+  font-size: var(--taille-police-h1);
+}
+
+.prose h2 {
+  font-size: var(--taille-police-h2);
+}
+
+.prose h3 {
+  font-size: var(--taille-police-h3);
+}
+
+.prose h4 {
+  font-size: var(--taille-police-h4);
+}
+
+.prose h5 {
+  font-size: var(--taille-police-h5);
+}
+
+.prose h6 {
+  font-size: var(--taille-police-h6);
 }
 
 .prose p {
@@ -42,7 +75,7 @@
 
 .prose b,
 .prose strong {
-  font-weight: var(--prose-graisse-gras, 700);
+  font-weight: var(--graisse-corps-gras, 700);
 }
 
 .prose blockquote {
@@ -69,7 +102,7 @@
 }
 
 .prose ul {
-  --prose-couleur-puce: var(--jaune-galliano-500);
+  --prose-couleur-puce: var(--cyber-jaune-500);
 
   list-style: none outside none; /* nous stylons avec li::before */
   padding-inline: 0;
@@ -86,7 +119,7 @@
   display: inline-block;
   position: absolute;
   left: 1.25rem;
-  top: .35em; /* relatif à la taille de police actuelle */
+  top: calc(var(--interlignage-corps) * 1em / 3); /* relatif à la taille de police et à l'interlignage */
   width: .625rem; /* 16px => 10px */
   aspect-ratio: 1 / 1;
 
@@ -103,6 +136,41 @@
   color: var(--bleu-royal-500);
   background-color: var(--bleu-royal-50);
   letter-spacing: 0.025em; /* aider à bien distinguer caractères monochasse */
+}
+
+/* Images et figures */
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* gérer les images enfant comme des figures */
+.prose > img {
+  margin-block: var(--prose-espacement-elements-extra);
+  margin-inline: auto;
+  display: flex;
+}
+
+.prose figure {
+  margin-block: var(--prose-espacement-elements-extra);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* Espacement éventuel de la légende */
+  gap: .5rem;
+}
+
+.prose figure img {
+  /* block: éviter espacements (traité comme image inline, avec blancs typographiques) */
+  display: block;
+}
+
+.prose figcaption {
+  /* espacement appliqué par le gap de l'élément flex*/
+  margin: 0;
+
+  font-size: 0.875rem;
 }
 
 /* Diapositives */

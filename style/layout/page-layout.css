@@ -5,7 +5,7 @@
   --page-couleur-fond: var(--couleur-fond);
   --page-couleur-texte: var(--couleur-texte);
   --page-largeur-infra: 10rem; /* espace libre à gauche */
-  --page-largeur-extra: 20rem; /* espace libre à droite */
+  --page-largeur-extra: 18rem; /* espace libre à droite */
   --pages-colonnes: 1fr;
   --page-zones:
     "infra"

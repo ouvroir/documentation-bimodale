@@ -5,3 +5,9 @@
 
  /* Couleur de sélection */
 /* ::selection {} */
+
+/* Typo et sa graisse par défaut */
+html {
+  font-family: var(--police-corps);
+  font-weight: var(--graisse-corps);
+}
