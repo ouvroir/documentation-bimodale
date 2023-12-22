@@ -178,7 +178,11 @@
 /*
 Bloc qui devrait figurer dans les diapositives, mais qui ne devrait pas
 apparaître dans le document comme tel.
+Doit être en *enfant direct* de `.prose`.
 */
-.prose .slide-only {
+.prose > [data-diapositive] {
+  display: contents;
+}
+.prose > [data-diapositive="diapo-seulement"] {
   display: none;
 }
