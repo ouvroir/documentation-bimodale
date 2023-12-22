@@ -25,6 +25,11 @@
     --page-zones: "infra contenu extra";
   }
 }
+@media (min-width: 90rem) {
+  .page-layout {
+    --page-largeur-extra: 24rem;
+  }
+}
 
 /* Disposition du contenu principal (colonnes) */
 .page-layout__main {
