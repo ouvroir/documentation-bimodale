@@ -400,9 +400,16 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
 /*********************************************
  * SLIDE NUMBERS
  *********************************************/
-.reveal .slide-number {
+ .reveal .slide-number {
   left: 8px;
   right: auto;
+
+  background-color: transparent;
+  color: #000;
+  opacity: 0.8;
+}
+.reveal.has-dark-background .slide-number {
+  color: #fff;
 }
 
 /*********************************************

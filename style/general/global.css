@@ -7,7 +7,7 @@
 /* ::selection {} */
 
 /* Typo et sa graisse par défaut */
-html {
+html, body {
   font-family: var(--police-corps);
   font-weight: var(--graisse-corps);
 }
