@@ -183,6 +183,6 @@ Doit être en *enfant direct* de `.prose`.
 .prose > [data-diapositive] {
   display: contents;
 }
-.prose > [data-diapositive="diapo-seulement"] {
+.prose > [data-diapositive="seulement"] {
   display: none;
 }
