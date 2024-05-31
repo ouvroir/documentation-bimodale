@@ -2,17 +2,47 @@
 
 À partir d'un document HTML bien balisé, on peut produire une présentation sous forme de diapositives qui suit la logique du texte (et non celle du diaporama).
 
-## Outils
+## Outils et bibliothèques
 
-- reveal.js : bibliothèque ubiquitaire pour produire des présentations dans le navigateur.
+- [reveal.js](https://revealjs.com/) : bibliothèque ubiquitaire pour produire des présentations dans le navigateur.
 
-## Charte graphique
+## Rédaction
+
+Les diapositives sont indiquées par des balises à même la prose à l’aide de l’attribut `data-diapositive`.
+
+```html
+<div data-diapositive="">
+  <p>Ce paragraphe se retrouvera dans une diapositive</p>
+</div>
+```
+
+Certains contenus devraient figurer _exclusivment_ dans le diaporama.
+On donnera donc une valeur `seulement` à l’attribut `data-diapositive` `seulement`.
+
+```html
+<div data-diapositive="seulement">
+  <p>Ce paragraphe sera invisible dans la prose, mais apparaîtra dans le diaporama.</p>
+</div>
+```
+
+Chaque élément diapositive peut comporter l’ensemble des options reveal.js sous forme d’attributs.a
+
+```html
+<!-- Une diapositive au fond noir qui présente une image en plein écran -->
+<div data-diapositive="seulement" data-background-color="#000" data-background-image="cite-radieuse-marseille.jpg" data-background-size="contain"></div>
+
+<!-- Une diapositive avec l'une des couleurs du thème -->
+<section data-diapositive="seulement" data-background-color="var(--bleu-royal)">Une autre diapo</section>
+```
 
 ## Feuilles de style CSS
 
 La division des styles se fait selon des pratiques rigoureuses, tout en ayant recours au moins d'outillage externe que possible (transpilateur SASS, plugins postCSS, etc.).
 
-## Styles généraux
+<details>
+<summary><strong>Précisions sur l’écriture des styles</strong></summary>
+
+### Styles généraux
 
 Il y a très peu de styles généraux.
 
@@ -39,7 +69,7 @@ Exemples:
   - `bloc__enfant--variante`: deux traits d'union indiquent une variante. Sur un élément, on doit combiner les deux classes, la base et sa variante (ex. `class="bloc__enfant bloc__enfant--variante"`).
 - `bloc__enfant__petit-enfant`: les éléments enfants peuvent avoir des petits-enfants lorsque qu'une telle hiérarchie est explicitement nécessaire. On évitera néanmoins d'y recourir le plus possible. Ne pas créer d'hiérarchies de plus de 3 générations.
 
-## Rédaction des règles d'un composant
+### Rédaction des règles d'un composant
 
 ```css
 .bloc {
@@ -91,3 +121,9 @@ Exemples:
   --bloc-background-color: #f1f1f1; /* utilisé dans la déclaration du bloc */
 }
 ```
+
+</details>
+
+---
+
+Louis-Olivier Brassard <louis-olivier.brassard@umontreal.ca>
