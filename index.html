@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Documentation</title>
+    <title>Documentation bimodale</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <!-- Métadonnées -->
@@ -22,63 +22,14 @@
     <link rel="stylesheet" href="style/layout/page-layout.css" />
     <!-- Composants -->
     <link rel="stylesheet" href="style/components/prose.css" />
+    <link rel="stylesheet" href="style/components/conteneur-diapositives.css" />
+
+    <!-- Styleguide (demo only) -->
+    <link rel="stylesheet" href="style/components/styleguide.css" />
 
     <link rel="stylesheet" href="lib/reveal.js-5.0.3/dist/reveal.css" />
     <link rel="stylesheet" href="style/components/theme.reveal.css" />
 
-    <style>
-      /* Styleguide specific styles (sg => styleguide) */
-      .sg-section-tuiles {
-        margin-block: 1rem;
-      }
-
-      .sg-section-tuiles__alignement {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: stretch;
-        justify-content: space-between;
-        gap: .125rem;
-      }
-      @media (min-width: 60rem) {
-        .sg-section-tuiles__alignement {
-          flex-wrap: nowrap;
-          gap: .25rem;
-        }
-      }
-      .sg-section-tuiles__entete {
-        margin-block: 0 .5rem;
-        font-size: 1.25rem;
-      }
-
-      .sg-tuile {
-        --tuile-bg: var(--gris-athenes-100); /* replace me! */
-        --tuile-couleur-bordure: var(--tuile-bg); /* replace me! */
-
-        flex: 1 1 0;
-        max-width: 4.5rem;
-        width: 100%;
-      }
-
-      .sg-tuile__pastille {
-        aspect-ratio: 3 / 2;
-
-        background-color: var(--tuile-bg);
-        border: 0px solid var(--tuile-couleur-bordure);
-        border-radius: .35rem;
-      }
-
-      .sg-tuile__description {
-        padding: .125rem;
-
-        color: var(--gris-athenes-800);
-        font-size: 0.75rem;
-      }
-
-      .reveal {
-        border: 2px solid currentColor;
-      }
-    </style>
   </head>
   <body>
     <!-- .page-layout pourrait être appliqué sur le body (ici c'est pour le guide) -->
@@ -95,11 +46,29 @@
           <div class="prose">
             <!-- -->
 
+            <h1>Documentation bimodale</h1>
+
             <div data-diapositive="seulement" data-state="centered">
-              <h1>Bienvenue</h1>
+              <h1 id="bienvenue">Bienvenue</h1>
 
               <p>Ceci est une documentation bimodale <br>(prose + diapositives)</p>
             </div>
+
+            <h2>Qu’est-ce que c’est?</h2>
+
+            <p>La publication bimodale (prose + diapositives) permet de produire un diaporama en suivant la logique du contenu principal, plutôt que le découpage inverse (centré sur les diapositives).</p>
+
+            <details open class="conteneur-diapositives">
+              <summary class="conteneur-diapositives-etiquette">Diapositives</summary>
+            
+              <div class="reveal" style="width: 100%; aspect-ratio: 16 / 9">
+                <div class="slides">
+                  <!-- Diapositives insérées ici -->
+                </div>
+              </div>
+            </details>
+
+            <p>Le diaporama utilise la bibliothèque <a href="https://revealjs.com/" target="_blank">Reveal.js</a> (cliquez dans le cadre, puis appuyez sur la touche <code>f</code> pour lancer le mode plein écran).</p>
 
             <h2>Typographie</h2>
 
@@ -128,31 +97,35 @@
             <h5>En-tête de niveau 5</h5>
             <h6>En-tête de niveau 6</h6>
 
-            <div data-diapositive>
+            <div data-diapositive="">
               <p>Un paragraphe. La taille de base pour la prose est de <code>1.25rem</code> (soit <code>20px</code> avec les préférences par défaut des navigateurs).</p>
               <p>Paragraphe avec du <strong>gras</strong> et de l'<em>italique</em>. Il pourrait y avoir du <mark>texte en surbrillance</mark>, quelques exposants<sup>x,y</sup> et même… du <code>code</code>. Voici une <a href="https://tei-c.org/">ancre</a> qui pointe vers un site externe.</p>
             </div>
 
-            <blockquote>
-              <p>Une citation longue, automatiquement mise en retrait.</p>
-            </blockquote>
+            <div data-diapositive="">
+              <blockquote>
+                <p>Une citation longue, automatiquement mise en retrait.</p>
+              </blockquote>
+            </div>
 
-            <p>Deux types de listes :</p>
+              <p>Deux types de listes :</p>
 
-            <ol>
-              <li>une</li>
-              <li>liste</li>
-              <li>numérotée</li>
-            </ol>
+            <div data-diapositive="">
+              <ol>
+                <li>une</li>
+                <li>liste</li>
+                <li>numérotée</li>
+              </ol>
+            </div>
 
             <ul>
-              <li style="--prose-couleur-puce: var(--bleu-royal-500)">une</li>
+              <li>une</li>
               <li style="--prose-couleur-puce: var(--ocre-rouge-500)">liste<br>(blah)<br>(bla)</li>
-              <li>non ordonnée
+              <li style="--prose-couleur-puce: var(--cyber-jaune-500)">non ordonnée
                 <ul>
-                  <li style="--prose-couleur-puce: var(--ocre-rouge-500)">et une autre
+                  <li style="--prose-couleur-puce: var(--bleu-royal-500)">et une autre
                     <ul>
-                      <li style="--prose-couleur-puce: var(--bleu-royal-500)">imbriquée</li>
+                      <li style="--prose-couleur-puce: var(--ocre-rouge-500)">imbriquée</li>
                     </ul>
                   </li>
                 </ul>
@@ -519,22 +492,47 @@
 
             <hr />
 
-            <h2>Diapositives</h2>
+            <div data-diapositive="" data-state="intertitre" data-background-color="#000" data-numbers="false">
+              <h2>Syntaxe</h2>
+            </div>
 
-            <p>La publication bimodale (prose + diapositives) permet de produire un diaporama en suivant la logique du contenu principal, plutôt que le découpage inverse (centré sur les diapositives).</p>
+            <div data-diapositive="">
+              <p><strong>Pour ajouter des diapositives :</strong> Par défaut, rien de la prose ne figure dans le diaporama. Pour inclure du contenu sous forme de diapositive, il s'agit de l'entourer d'un élément avec l'attribut <code>data-diapositive</code></code> :</p>
+
+              <pre>&lt;div data-diapositive=""&gt;
+  ... contenu HTML ...
+&lt;/div&gt;
+</pre>
+            </div>
+
+            <div data-diapositive="">
+              <p><strong>Diapositives seulement :</strong> Si un contenu doit se retrouver <em>uniquement</em> dans le diaporama (et donc ne pas apparaître dans la prose), on peut spécifier la valeur <code>seulement</code> à l’attribut :</p>
+            
+              <pre>&lt;div data-diapositive="seulement"&gt;
+  Je n'apparaîtrai que dans les diapositives!
+&lt;/div&gt;
+</pre>
+            </div>
+
+            <div data-diapositive="">
+              <p><strong>Éléments inlines :</strong> Il n'est pas nécessaire d'entourer un bloc au complet dans un <code>&lt;div&gt;</code>; on peut aussi utiliser des passages <em lang="en">inlines</em>, comme <code>&lt;span data-diapositive=&quot;&quot;&gt;</code>, ou n’importe quel élément HTML : l’intérieur de l’élément sera copié intégralement.</p>
+      
+              <pre>&lt;p&gt;
+  Lorem ipsum dolor sit amet.
+  &lt;span data-diapositive="seulement"&gt;Ce texte
+  sera rendu dans une diapositive.&lt;/span&gt;
+  Himenaeos nullam fringilla mi class sed
+  non nam integer et scelerisque cum.
+&lt;/p&gt;</pre>
+            </div>
+
+            <div data-diapositive="">
+              <p><strong>Fonctionnalités Reveal.js :</strong> Pour bénéficier des <a href="https://revealjs.com/markup/#slide-states" target="_blank">fonctionnalités de balisage de Reveal.js</a> (ex. pour modifier la <a href="https://revealjs.com/backgrounds/" target="_blank">couleur ou l’image de fond</a>, etc.), on peut baliser le même élément avec l’attribut <code>data-state="ma-classe"</code>, ou encore <code>data-background-color=&quot;var(--bleu-royal-500)&quot;</code>.</p>
+            </div>
 
             <section data-diapositive="seulement" data-state="centered hide-numbers">
               <h2>Fini.</h2>
             </section>
-
-            <div class="reveal" style="width: 100%; aspect-ratio: 16 / 9">
-              <div class="slides">
-                <!-- Diapositives insérées ici -->
-              </div>
-            </div>
-
-            <script src="lib/reveal.js-5.0.3/dist/reveal.js"></script>
-            <script src="scripts/diapositives.js"></script>
 
           </div>
         </article>
@@ -547,6 +545,11 @@
       <footer>
         <!-- Mentions légales, liens, etc. -->
       </footer>
+
+      <!-- Scripts -->
+      <script src="lib/reveal.js-5.0.3/dist/reveal.js"></script>
+      <script src="scripts/diapositives.js"></script>
+
     </div>
   </body>
 </html>

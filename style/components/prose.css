@@ -11,6 +11,7 @@
   --prose-interlignage: 1.375;
   --prose-couleur-ancres: var(--couleur-ancres);
   --prose-couleur-ancres-survol: var(--couleur-ancres-survol);
+  --prose-couleur-puce: var(--bleu-royal-500);
 
   /* typo générale */
   font-family: var(--police-corps);
@@ -102,8 +103,6 @@
 }
 
 .prose ul {
-  --prose-couleur-puce: var(--cyber-jaune-500);
-
   list-style: none outside none; /* nous stylons avec li::before */
   padding-inline: 0;
   margin-inline-start: 0;
@@ -123,9 +122,16 @@
   width: .625rem; /* 16px => 10px */
   aspect-ratio: 1 / 1;
 
-
   background-color: var(--prose-couleur-puce);
   border-radius: 50%;
+}
+
+.prose ol li::marker {
+  color: var(--prose-couleur-puce, currentColor);
+}
+
+.prose pre {
+  overflow-x: auto;
 }
 
 .prose code {
@@ -133,8 +139,8 @@
   font-size: 81.25%; /* 16px => 14px */
   line-height: 1; /* réduire l'espace vertical */
   border-radius: .25rem; /* accorder avec padding-inline */
-  color: var(--bleu-royal-500);
-  background-color: var(--bleu-royal-50);
+  color: var(--couleur-code);
+  background-color: var(--couleur-fond-code);
   letter-spacing: 0.025em; /* aider à bien distinguer caractères monochasse */
 }
 

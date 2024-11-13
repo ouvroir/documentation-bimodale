@@ -28,37 +28,37 @@ function makeDiapositives() {
   /** @type {HTMLElement} */
   const revealSlidesContainer = document.querySelector('.reveal .slides');
   /** @type {NodeList} */
-  const diapositives = document.querySelectorAll('[data-diapositive');
+  const diapositives = document.querySelectorAll('[data-diapositive]');
   
   if (!revealSlidesContainer) {
     throw new Error('Aucun élément `.reveal` trouvé. Les diapositives n’ont pas été créées.');
   }
 
   diapositives.forEach(diapositive => {
-    console.log({ diapositive })
-    console.log(diapositive.nodeName.toLowerCase())
-    if (diapositive.nodeName.toLowerCase() === 'section') {
-      // transclusion directe s'il s'agit d'un élément <section>
-      revealSlidesContainer.appendChild(diapositive);
-    } else {
-      // on recopie les attributs et le contenu du noeud dans un élément <section>
-      let diapoSection = document.createElement('section');
-      // copie du contenu interne
-      diapoSection.innerHTML = diapositive.innerHTML;
+    // on recopie les attributs et le contenu du noeud dans un élément <section>
+    let diapoSection = document.createElement('section');
 
-      // copie des attributs
-      // C'est une boucle simple sur la propriété `attributes`
-      // Il n'y a pas de méthode pratique, comme le forEach(), qui soit disponible
-      for (let i = 0; i < diapositive.attributes.length; i++) {
-        diapoSection.setAttribute(
-          diapositive.attributes[i].nodeName,
-          diapositive.attributes[i].nodeValue
-        );
-      }
+    // copie du contenu interne
+    diapoSection.innerHTML = diapositive.innerHTML;
 
-      // on insère la diapositive
-      revealSlidesContainer.appendChild(diapoSection);
+    // Attention! Pour éviter les conflits d'ID, on enlève l'attribut `id`
+    // des éléments copiés (enfants de la diapositive)
+    Array.from(diapoSection.querySelectorAll('[id]')).forEach(node => {
+      node.removeAttribute('id');
+    });
+
+    // copie des attributs de la diapositive
+    // C'est une boucle simple sur la propriété `attributes`
+    // Il n'y a pas de méthode pratique, comme le forEach(), qui soit disponible
+    for (let i = 0; i < diapositive.attributes.length; i++) {
+      diapoSection.setAttribute(
+        diapositive.attributes[i].nodeName,
+        diapositive.attributes[i].nodeValue
+      );
     }
+
+    // on insère la diapositive
+    revealSlidesContainer.appendChild(diapoSection);
   });
 }
 

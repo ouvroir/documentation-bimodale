@@ -23,7 +23,7 @@ section.has-dark-background h6 {
   --r-main-font: var(--police-corps);
   --r-main-font-size: 40px;
   --r-main-color: #000;
-  --r-block-margin: 20px;
+  --r-block-margin: 28px;
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: var(--police-entetes);
   --r-heading-color: #000;
@@ -33,8 +33,8 @@ section.has-dark-background h6 {
   --r-heading-text-shadow: none;
   --r-heading-font-weight: var(--graisse-entetes);
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 4em;
-  --r-heading2-size: 2.75em;
+  --r-heading1-size: 2.75em;
+  --r-heading2-size: 2.00em;
   --r-heading3-size: 1.55em;
   --r-heading4-size: 1.25em;
   --r-code-font: var(--police-mono);
@@ -48,8 +48,10 @@ section.has-dark-background h6 {
 
   /* Additions */
   --r-controls-color: var(--gris-athenes-700);
-  --r-controls-font-size: 8px;
-  --r-progress-color: var(--ocre-rouge-500);
+  --r-controls-font-size: 7px;
+  --r-progress-color: var(--bleu-royal-400);
+
+  --reveal-couleur-puce: var(--bleu-royal-400);
 }
 
 .reveal-viewport {
@@ -162,7 +164,7 @@ section.has-dark-background h6 {
 .reveal ol,
 .reveal dl,
 .reveal ul {
-  display: inline-block;
+  /* display: inline-block; */
   text-align: left;
   margin: 0 0 0 1em;
 }
@@ -189,8 +191,6 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
   list-style-type: none;
 }
 .reveal ul li {
-  --reveal-couleur-puce: var(--bleu-royal-950);
-
   position: relative;
   padding-inline-start: 2.5em; /* faire place à la puce */
   margin-inline-start: 0;
@@ -208,13 +208,6 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
   background-color: var(--reveal-couleur-puce);
   border-radius: 50%;
 }
-.reveal ul.multicolore li:nth-child(3n + 1) {
-  --reveal-couleur-puce: var(--bleu-royal-700);
-}
-.reveal ul.multicolore li:nth-child(3n + 2) {
-  --reveal-couleur-puce: var(--bleu-royal-200);
-}
-
 .reveal ul ul,
 .reveal ul ol,
 .reveal ol ol,
@@ -233,19 +226,28 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
 
 .reveal blockquote {
   display: block;
-  position: relative;
-  width: 70%;
   margin: var(--r-block-margin) auto;
-  padding: 5px;
-  font-style: italic;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  padding-block: 0;
+  padding-inline-start: 1em;
+  /* width: 80%; */
+  color: var(--bleu-royal-600);
+  /* font-style: italic; */
+  border-inline-start: 1px solid var(--bleu-royal-100);
+
 }
 
 .reveal blockquote p:first-child,
 .reveal blockquote p:last-child {
   display: inline-block;
 }
+/* Annuler les espacements inutiles */
+.reveal blockquote > :first-child {
+  margin-block-start: 0;
+}  
+.reveal blockquote > :last-child {
+  margin-block-end: 0;
+}  
 
 .reveal q {
   font-style: italic;
@@ -255,13 +257,13 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
   display: block;
   position: relative;
   width: 90%;
-  margin: var(--r-block-margin) auto;
+  margin: var(--r-block-margin) 0;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.75em;
   font-family: var(--r-code-font);
   line-height: 1.2em;
   word-wrap: break-word;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); */
 }
 
 .reveal code {
@@ -319,12 +321,14 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
 }
 
 .reveal sup {
-  vertical-align: super;
+  /* l'alignement vertical n'est pas bien rendu si `super` est spécifié;
+     mieux vaut laisser cette règle vide */
+  /* vertical-align: super; */
   font-size: smaller;
 }
 
 .reveal sub {
-  vertical-align: sub;
+  /* vertical-align: sub; */
   font-size: smaller;
 }
 
@@ -348,13 +352,14 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
  *********************************************/
 .reveal a {
   color: var(--r-link-color);
-  text-decoration: none;
-  transition: color 0.15s ease;
+  text-decoration: underline solid currentColor;
+  transition: all 0.25s ease;
 }
 
 .reveal a:hover {
   color: var(--r-link-color-hover);
   text-shadow: none;
+  text-decoration-color: transparent;
   border: none;
 }
 
@@ -410,6 +415,10 @@ ou Edward Tufte, _The Cognitive Style of PowerPoint_.
 }
 .reveal.has-dark-background .slide-number {
   color: #fff;
+}
+.reveal .slide-number a {
+  /* avoid collision with regular anchors */
+  text-decoration: none;
 }
 
 /*********************************************

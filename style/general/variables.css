@@ -129,4 +129,6 @@
   --couleur-ancres-clic: var(--bleu-royal-700);
   --couleur-fond-subrillance: var(--cyber-jaune-400);
   --couleur-texte-surbrillance: #000;
+  --couleur-code: var(--bleu-royal-500);
+  --couleur-fond-code: var(--bleu-royal-50);
 }
