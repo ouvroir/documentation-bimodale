@@ -10,7 +10,7 @@ pages:
     - mv scripts public/
     - mv style public/
     - mv lib public/
-    - mv *.{jpg,png} public/
+    - mv *.{jpg} public/
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
