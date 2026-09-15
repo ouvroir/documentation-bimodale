@@ -1,5 +1,5 @@
 ---
-title: "* | Liste des présentations"
+title: * | Liste des présentations
 author: author-name
 # Pour forcer l’ordre des séances, décommenter et adapter :
 # seances:
