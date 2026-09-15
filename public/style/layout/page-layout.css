@@ -69,8 +69,8 @@
 
   border-radius: .75rem;
   font-size: var(--taille-police-smaller); /* .8125rem */
-  background-color: var(--jaune-galliano-50);
-  color: var(--jaune-galliano-600);
+  background-color: var(--cyber-jaune-50);
+  color: var(--cyber-jaune-600);
 }
 
 .page-layout__extra {

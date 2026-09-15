@@ -209,6 +209,7 @@ dia-only est masqué (visible uniquement dans le diaporama Reveal.js).
 Doit être en enfant direct de `.prose`.
 */
 .prose > dia-both,
+.prose > [data-dia=""],
 .prose > [data-diapositive=""] {
   display: contents;
 }

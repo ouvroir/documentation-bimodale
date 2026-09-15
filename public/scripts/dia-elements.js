@@ -138,7 +138,14 @@ customElements.define('dia-pres', class extends HTMLElement {
       if (!this.hasAttribute('titre')) link.textContent = doc.title;
 
       // copier chaque diapositive dans un <section> Reveal.js
-      doc.querySelectorAll('[data-dia]').forEach(diapo => {
+      // doc vient de DOMParser (pas de contexte de navigation) : dia-both/dia-only
+      // n'ont pas été montés, donc pas encore de data-dia ni de shorthands dépliés
+      doc.querySelectorAll('dia-both, dia-only, [data-dia], [data-diapositive]').forEach(diapo => {
+        expandShorthands(diapo);
+        if (diapo.tagName === 'DIA-BOTH') diapo.setAttribute('data-dia', '');
+        else if (diapo.tagName === 'DIA-ONLY') diapo.setAttribute('data-dia', 'seulement');
+        else if (diapo.hasAttribute('data-diapositive')) diapo.setAttribute('data-dia', diapo.getAttribute('data-diapositive'));
+
         const section = document.createElement('section');
         section.innerHTML = diapo.innerHTML;
         // recopier les attributs Reveal.js — data-dia n'a pas de sens ici

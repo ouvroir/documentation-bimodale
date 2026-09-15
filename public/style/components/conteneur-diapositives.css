@@ -58,8 +58,7 @@
 
 /**
  * Mode présentation (?presentation)
- * Diapositives seules pleine largeur dans le viewport,
- * synchronisées avec la fenêtre principale via BroadcastChannel.
+ * Diapositives seules pleine largeur dans le viewport.
  */
 .presentation-mode .conteneur-diapositives {
   position: fixed;

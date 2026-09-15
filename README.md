@@ -292,7 +292,7 @@ Corriger dans Zotero via le champ **Extra** : `Citation Key: uneCleSansCaractere
 
 ## Mode présentation
 
-Ajoutez `?presentation` à l’URL pour ouvrir la page en mode plein écran. Les diapositives se synchronisent automatiquement entre la fenêtre prose et la fenêtre de présentation via `BroadcastChannel`.
+Ajoutez `?presentation` à l’URL pour ouvrir la page en mode plein écran.
 
 Le lien **Présenter ↗** en haut du conteneur de diapositives ouvre directement ce mode dans un nouvel onglet.
 

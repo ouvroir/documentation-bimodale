@@ -65,7 +65,7 @@ local function process_raw(el)
       function(prefix, src) return prefix .. 'src="' .. collect(src) .. '"' end
     )
   end
-  for _, attr in ipairs({ "data%-background%-image", "data%-src" }) do
+  for _, attr in ipairs({ "data%-background%-image", "data%-src", "data%-background%-video", "data%-background%-iframe" }) do
     html = html:gsub(
       '(' .. attr .. '=")([^"]*)"',
       function(prefix, src) return prefix .. collect(src) .. '"' end
@@ -92,8 +92,10 @@ local ELEMENTS = { ["dia-both"] = true, ["dia-only"] = true }
 -- Shorthands image résolus au build (les autres shorthands sont laissés au web component)
 -- RawInline a déjà traité data-background-image et data-src ; seuls les raccourcis restent.
 local IMAGE_SHORTHANDS = {
-  { pattern = "bg%-img", full = "data-background-image" },
-  { pattern = "src",     full = "data-src" },
+  { pattern = "bg%-img",    full = "data-background-image" },
+  { pattern = "bg%-video",  full = "data-background-video" },
+  { pattern = "bg%-iframe", full = "data-background-iframe" },
+  { pattern = "src",        full = "data-src" },
 }
 
 local function escape_tag(tag)
