@@ -1,0 +1,18 @@
+# Configuration locale Pandoc — citeproc / bibliographie
+# Copier ce fichier en pandoc.local.yaml et adapter les chemins.
+# pandoc.local.yaml est ignoré par git (chemins spécifiques à la machine).
+
+# Activer le traitement des citations
+citeproc: true
+
+# Chemin vers la bibliothèque BibTeX (exportée depuis Zotero/BetterBibTeX)
+bibliography:
+  - "/chemin/vers/Ma bibliothèque.bib"
+
+# Style de citation — télécharger depuis https://www.zotero.org/styles
+# Styles courants : chicago-author-date.csl, chicago-notes-bibliography.csl,
+#                   iso690-note-fr.csl, apa.csl, modern-language-association.csl
+csl: "/chemin/vers/Zotero/styles/chicago-author-date.csl"
+
+metadata:
+  reference-section-title: "Références"

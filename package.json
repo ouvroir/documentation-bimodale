@@ -1,5 +1,8 @@
 {
-	"dependencies": {
-		"reveal.js": "^5.0.3"
-	}
+  "name": "documentation-bimodale",
+  "private": true,
+  "description": "Générateur de documentation bimodale prose + Reveal.js",
+  "devDependencies": {
+    "reveal.js": "^6.0.1"
+  }
 }

@@ -1,2 +1,17 @@
 node_modules
+package-lock.json
 .vercel
+.watch_sentinel
+.reload
+
+# fichiers générés dans public/
+public/*.html
+!public/documentation.html
+public/images/
+
+# métadonnées de build
+.seances-meta.yaml
+
+# config locale (chemins machine-spécifiques)
+pandoc.local.yaml
+bimodale.config.mk
