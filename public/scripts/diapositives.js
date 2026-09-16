@@ -30,12 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {Element|undefined} nextSlideEl - Diapositive suivante (borne exclue)
  * @returns {string} HTML des notes, ou chaîne vide
  */
-const BIBLIOGRAPHY_IDS = new Set(['bibliography', 'refs']);
-
 function collectNotes(slideEl, nextSlideEl) {
   const parts = [];
   let node = slideEl.nextElementSibling;
-  while (node && node !== nextSlideEl && !BIBLIOGRAPHY_IDS.has(node.id)) {
+  while (node && node !== nextSlideEl) {
     if (!node.hasAttribute('data-dia')) {
       parts.push(node.outerHTML);
     }
